@@ -1,0 +1,174 @@
+@charset "UTF-8"; /*acrescentar para considerar acentuação e cecedilha*/
+/*com a ferramenta Window Resizer (já instalado neste computador) verificar a largura e se há quebra da página, clicando na ferramente e em 'i'; no canto inferior direito, aparecerá uma janela com as configurações e também verificar nas outras opções a página num celular ou tablet, por exemplo*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); /*essa é uma fonte externa (está nesse site*/
+@font-face {     /*essa é uma fonte interna (está aqui no computador*/
+    font-family: 'Android';
+    src: url('fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+:root {     /*':root' é a raiz da árvore do nosso documento; é uma pseudo classe*/
+    --cor0: #c5ebd6;   /*essas são variáveis em css e sempre começam com '-- + nomes das variáveis*/
+    /*as cores 1 a 5 foram obtidas pelo adobe color, paleta monocromática e a cor base foi obtida no Google image, logo do Android*/
+    --cor1: #83e1ad; /*cores monocromáticas; da mais clara p/ a + escura*/
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif; /*sans-serif, como a cursive abaixo, é uma fonte genérica; quando nenhuma das anteriores funcionar no navegador, funcionará essa fonte genérica; ela deve ser colocada por último*/
+    --fonte-destaque: 'Bebas Neue', cursive;
+    --fonte-android: 'Android', cursive;
+}
+* {    /*configuração global; todos os elementos (ou seletores) não terão margin e padding, o.s, ficarão todos juntos, sem espaço entre eles*/
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: var(--cor0);   /*criando cor de fundo da página; após o 'background-color:' digitar var e selecionar var() que aparecerá numa janela; e selecionar a variável pretendida que aparecerá numa outra janela aberta (essa janela poderá ser aberta tb quando clicarmos em 'Ctrl + barra de espaço'*/
+    font-family: var(--fonte-padrao);
+} 
+a.externo::after {  /*todos os links da classe externo; colocar a 'class: 'externo' nos links contidos no conteúdo que deseja colocar o desenho' */
+    content: '\00A0\1F517'; /*p/ colocar um desenho (corrente) nos links externos, como faz a maioria dos sites; o '00A0' antes é p/ dar um espaço pro link; obtido o link (corrente) no emojipedia.org*/
+}
+header {
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5)); /*criando um degradê no cabeçalho*/
+    min-height: 150px;   /*p/ que o cabeçalho fique com pelo menos 150px*/
+    text-align: center;  /*p/ que os elementos do cabeçalho fiquem centralizados*/
+    padding-top: 100px;  /*p/ que o 'h1' não fique colado na parte superior*/
+}
+header > h1 {
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 3em;
+    font-weight: normal; /*p/ tirar o negrito que o 'h1' já está configurado, p/ ficar mais fácil na leitura*/
+    margin-bottom: 20px; /*criando espaço embaixo do 'h1' para não ficar colado no 'p'*/
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.357); /*criando sombra no texto('h1')*/
+}
+header > p {
+    font-size: 1.2em;
+    color: white;
+    max-width: 500px;  /*p/ que o 'p' fique mais contido no cabeçalhado; ao definir a largura máxima o 'p' tornar-se um bloco, sendo necessário criar o seletor 'margin: auto' p/ centralizar*/
+    padding-left: 10px; /*p/ que o 'p' não fique colado na lateral quando a viewport estiver pequena */
+    margin: auto; /*p/ centralizar o 'p'*/
+    padding-right: 10px;  /*p/ que o 'p' não fique colado na lateral quando a viewport estiver pequena */
+    margin: auto; /*p/ centralizar o 'p'*/
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.357); /*criando sombra no texto ('p') do cabeçalho*/
+}
+nav {   /*criando o menu*/
+    background-color: var(--cor5);
+    padding: 10px; /*criando mais espaço*/
+    box-shadow: 7px 7px 9px rgba(0, 0, 0, 0.22); /*criando sosmbra no box*/
+}
+nav > a {   /*link que está dentro do nav*/
+    color: var(--cor1);
+    padding: 10px;   /*p/ separar os menus*/
+    border-radius: 2px; /*criando borda arredonda nos links*/
+    text-decoration: none;   /*p/ tirar o sublinhado dos links*/
+    font-weight: bold;   /*p/ colocar em negrito*/
+    transition-duration: 0.5s; /*criando um tempo de transição quando passar o mouse de um link p/ o outro*/
+} 
+nav > :hover {   /*criando uma pseudo classe para quando passar o mouse por cima do link ele ficará com uma cor*/
+    background-color: var(--cor2);
+    color: var(--cor5)   /*criando cor nas letras*/
+}  
+main {
+    background-color: white;
+    min-width: 300px;    /*para definir esse mínimo (no minímo 320px, que é o tamanho de um celular antigo) e máximo entramos na página do site e acessamos a ferramenta 'window resizer'; clicando em 'i' vai abrir uma janela no canto inferior direito da página e nela é informado o tamanho da viewport (janela de exibição\0; aumentando e diminuindo a tela observamos numa imagem contida que esteja contida na tela onde ela quebra (onde haverá uma rolagem da tela); após definir esse minímo e máximo é necessário definir no seletor da imagem o tamanho da lagura (width) em 100% (no caso da tag 'img' ou o máximo da largura em px (no caso da tag 'source'); esse mínimo é o tamanho da largura que o conteúdo principal será apresentado na página; a ferramenta window resizer permite também verificar a exibição num celular ou num tablet, p.e.*/
+    max-width: 1000px;    /*acima de 1000px o conteúdo para de crescer e abaixo dele o conteúdo se adapta na página do site*/
+    margin: auto;  /*para centralizar o conteúdo principal no centro, permitindo que no caso de numa tv grande o conteúdo permanecerá no centro delimitado do aparelho, evitando que tenha que ficar virando a cabeça para ler o conteúdo*/
+    margin-bottom: 10px; /*p/ que o conteúdo não fique colocado no rodapé*/
+    padding: 20px;  /*para o conteúdo se afastar das laterais*/
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.357); /*criando sombra no box*/
+    border-bottom-left-radius: 10px; /*criando uma borda arredondada no final do conteúdo, lado esquerdo; não queremos uma borda na parte superior*/
+    border-bottom-right-radius: 10px; /*criando uma borda arredondada no final do conteúdo, lado direito*/
+}
+main h1 {
+    font-family: var(--fonte-android);
+    color: var(--cor5);
+    font-weight: normal; /*p/ tirar o negrito que o 'h1' já está configurado, p/ ficar mais fácil na leitura*/
+    font-size: 1.8em;
+}
+main h2 {
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    font-size: 1.3em;
+    font-weight: normal;  /*p/ tirar o negrito que o 'h1' já está configurado, p/ ficar mais fácil na leitura*/
+    background-image: linear-gradient(to right, var(--cor1), transparent);
+    text-indent: 8px;  /*p/ afastar o texto da lateral esquerda*/
+}
+main p {  /*não se coloca o '>' pq dentro do 'main', antes do 'p', tem outro elemento ('article'); significa que valerá para todos os 'p' dentro do 'main', inclusive dentro de outras tags contidas no 'main'*/
+    margin: 15px 0px; /*criando margem encima e abaixo de 15px; e sem margem nas laterais*/
+    text-align: justify; /*todos os parágrafos ficarão justificados*/
+    text-indent: 30px;   /*colocando um recuo à direita na primeira linha de cada parágrafo*/
+    font-size: 1.3em;
+    line-height: 1.3em;  /*altura da linha entre uma e outra*/
+}
+main strong {
+    color: var(--cor5);
+    font-weight: bold;
+    padding: 2px 6px; /*p/ não ficar grudado; espaço encima, embaixo e nas laterais*/
+}
+main a {
+    text-decoration: none;
+    font-weight: bold;  /*colocando em negrito*/
+    color: var(--cor5);
+    background-color: var(--cor1);
+    padding: 2px 6px; /*colocando espaço encima, embaixo e nas laterais*/
+}
+main a:hover {    /*p/ quando passar o mouse o link fica c/ a característica de link e o mouse fica com a mãozinha e a cor fica mais clara*/
+    text-decoration: underline;
+    color: var(--cor4);
+}
+main img {
+    width: 100%;
+}
+main img.pequena {   
+    max-width: 350px; /*colocando o tamanho em % a imagem fica pequena demais na viewport pequena e grande demais e embaçada na viewport grande; colocando esse tamanho de 350px, a imagem fica limitada a esse crescimento e não fica aumentando quando movimentamos a página e fica com boa resolução*/
+}
+div.video {
+    background-color: var(--cor5);
+    position: relative;
+    margin: 0px -20px 30px -20px; /*30px embaixo p/ descolar embaixo do vídeo; os '-20px' são p/ colar o vídeo à esquerda e à direita*/
+    padding: 20px; 
+    padding-bottom: 56.5%; /*p/ ajustar o vídeo que ficou espremido entre a imagem do Bugdroid e o 'aside'*/
+}
+div.video > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+aside {
+    background-color: var(--cor1);
+    padding: 10px;   /*espaço encima, embaixo e nas laterais*/
+    border-radius: 10px; /*criando borda arredondada*/
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.39); /*criando sombra no box*/
+}
+aside h3 {
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0px -10px; /*valor negativo p/ crescer pra fora; ele perderá o arredondamento, sendo necessário acrescentar o 'border-radius'*/
+    border-radius: 10px 10px 0px 0px; /*criando borda arredondada só encima*/
+}
+aside > ul {
+    list-style-type: '\2714\00A0\00A0'; /*obter no emojipedia.org esse sinal de check; pegar só o número e colar entre aspas acrescentando antes dele a barra invertida; a barra invertida e '00A0' é p/ afastar um pouco o check (pode ser também '0020' p/ um afastamento maior) e novamente o '\00A0' p/ dar dois espaços sem quebras; isso não é compatível com todos os navegadores, no Chrome ele é*/
+    list-style-position: inside; /*para as bolinhas ficarem para o lado de dentro do 'aside'*/
+    columns: 2; /*para dividir a lista em 2 colunas*/
+}
+footer {
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px; /*p/ dar um espaço encima, embaixo e nas laterais*/
+}
+footer a {   /*não colocado o sinal '>' pq tem o 'p' no 'footer'*/
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor1)
+}
