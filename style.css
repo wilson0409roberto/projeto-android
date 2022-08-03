@@ -39,7 +39,7 @@ header > h1 {
     color: white;
     font-family: var(--fonte-destaque);
     font-size: 3em;
-    font-weight: normal; /*p/ tirar o negrito que o 'h1' já está configurado, p/ ficar mais fácil na leitura*/
+    font-weight: bold; /*p/ tirar o negrito que o 'h1' já está configurado, p/ ficar mais fácil na leitura*/
     margin-bottom: 20px; /*criando espaço embaixo do 'h1' para não ficar colado no 'p'*/
     text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.357); /*criando sombra no texto('h1')*/
 }
